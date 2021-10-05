@@ -1,9 +1,16 @@
-import ApolloClient from 'apollo-boost'
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client'
 import fetch from 'isomorphic-fetch'
 
-const client = new ApolloClient({
+const link = createHttpLink({
+  fetch,
   uri: 'https://eu1.prisma.sh/nevena-djaja/mocks/dev',
-  fetch: fetch,
+})
+
+const cache = new InMemoryCache()
+
+const client = new ApolloClient({
+  link,
+  cache,
 })
 
 export default client
