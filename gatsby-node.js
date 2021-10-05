@@ -6,7 +6,7 @@ exports.onPostBuild = ({ reporter }) => {
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions
-  const detailsPageComponent = path.resolve('src/pages/details.js')
+  const detailsPageComponent = path.resolve('src/pages/_details.js')
   const result = await graphql(`
     {
       prisma {
